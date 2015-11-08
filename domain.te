@@ -467,6 +467,8 @@ neverallow ~domain domain:process { transition dyntransition };
 #
 neverallow {
   domain
+  -sysinit
+  -afterboot
   -system_server
   -system_app
   -init
