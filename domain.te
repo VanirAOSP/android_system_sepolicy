@@ -495,7 +495,6 @@ neverallow {
   -system_app
   -init
   -interfacer
-  -toolbox
   -installd # for relabelfrom and unlink, check for this in explicit neverallow
 } system_data_file:file no_w_file_perms;
 # do not grant anything greater than r_file_perms and relabelfrom unlink
@@ -598,7 +597,7 @@ neverallow * domain:file { execute execute_no_trans entrypoint };
 # Instead, if access to part of debugfs is desired, it should have a
 # more specific label.
 # TODO: fix system_server and dumpstate
-neverallow { domain -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain') -rmt -untrusted_app} debugfs:file no_rw_file_perms;
+neverallow { domain -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain')} debugfs:file no_rw_file_perms;
 
 neverallow {
   domain
